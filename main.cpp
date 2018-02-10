@@ -1,3 +1,6 @@
+/* The original is written in German.
+   Feel free to contribute a translation! */
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -144,7 +147,7 @@ int main() {
 		cin >> decision;
 		cout << endl;
 		if (decision == "1") {
-			cout << "Das Molekül ist unpolar, da die Ladungsschwerpunkte zusammenfallen" << endl;
+			cout << "Das MolekÃ¼l ist unpolar, da die Ladungsschwerpunkte zusammenfallen" << endl;
 			cout << "Deshalb wirken hier van der Waals Wechselwirkungen\n\n";
 			system("pause");
 			return 0;
