@@ -79,7 +79,7 @@ int main() {
 		case 2:
 			system("cls");
 			cout << "Bitte eingeben: \n"
-				<< "Form: ax^2 + bx +c\n"
+				<< "Form: ax^2 + bx + c\n"
 				<< "a:\n"
 				<< "-> ";
 			cin >> a;
@@ -90,22 +90,29 @@ int main() {
 				<< "-> ";
 			cin >> c;
 			D = (b*b) - (4*a*c);
-			if (D > 0) {
-				double x1;
-				double x2;
-				x1 = (-b - sqrt(D)) / (2 * a);
-				x2 = (-b + sqrt(D)) / (2 * a);
-				cout << "x1 = " << x1 << endl << "x2 = " << x2 << endl;
-				system("pause");
-				return 0;
+			if (a != 0) {
+				if (D > 0) {
+					double x1;
+					double x2;
+					x1 = (-b - sqrt(D)) / (2 * a);
+					x2 = (-b + sqrt(D)) / (2 * a);
+					cout << "x1 = " << x1 << endl << "x2 = " << x2 << endl;
+					system("pause");
+					return 0;
+				}
+				else if (D == 0) {
+					x = (-b) / (2 * a);
+					cout << "x = " << x << endl;
+					system("pause");
+					return 0;
+				}
+				else if (D < 0) {
+					cout << "\nEs gibt keine L\x94 \bsung!\n";
+					system("pause");
+					return 0;
+				}
 			}
-			else if (D == 0) {
-				x = (-b) / (2 * a);
-				cout << "x = " << x << endl;
-				system("pause");
-				return 0;
-			}
-			else if (D < 0) {
+			else {
 				cout << "\nEs gibt keine L\x94 \bsung!\n";
 				system("pause");
 				return 0;
