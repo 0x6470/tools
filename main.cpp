@@ -2,11 +2,22 @@
    Feel free to contribute a translation! */
 
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
+
+template <typename T>
+T isfail(T strcin) {
+	if (cin.fail()) {
+		cout << "Sie m\x81 \bssen eine Zahl eingeben!\n";
+		system("pause");
+		return true;
+	} else {
+		return false;
+	}
+}
 
 int main() {
 	int a1;
@@ -50,10 +61,12 @@ int main() {
 				<< "p:\n"
 				<< "-> ";
 			cin >> p;
+			if (isfail(p)) { return 0; }
 			cout << endl;
 			cout << "q:\n"
 				 << "-> ";
 			cin >> q;
+			if (isfail(q)) { return 0; }
 			cout << endl;
 			D = (p / 2) * (p / 2) - q;
 			if (D > 0) {
@@ -83,13 +96,16 @@ int main() {
 				<< "a:\n"
 				<< "-> ";
 			cin >> a;
+			if (isfail(a)) { return 0; }
 			cout << "b:\n"
 				<< "-> ";
 			cin >> b;
+			if (isfail(b)) { return 0; }
 			cout << "c:\n"
 				<< "-> ";
 			cin >> c;
-			D = (b*b) - (4*a*c);
+			if (isfail(c)) { return 0; }
+			D = (b*b) - (4 * a*c);
 			if (a != 0) {
 				if (D > 0) {
 					double x1;
@@ -117,6 +133,7 @@ int main() {
 				system("pause");
 				return 0;
 			}
+			return 0;
 		}
 	case 2:
 		cout << "" << endl;
@@ -126,8 +143,7 @@ int main() {
 		cout << "-> ";
 		cin >> decision;
 		cout << endl;
-		if (decision == "1") {
-			//cout << endl;
+		if (decision == "2") {
 			cout << "Es handelt sich um eine salzartige Verbindung" << endl;
 			cout << "Aufbau aus Ionen => Ionenbindung\n\n";
 			system("pause");
@@ -139,8 +155,7 @@ int main() {
 		cout << endl << "-> ";
 		cin >> decision;
 		cout << endl;
-		if (decision == "2") {
-			//cout << endl;
+		if (decision == "1") {
 			cout << "Diese Atombindung ist unpolar" << endl;
 			cout << "=> van der Waals Wechselwirkungen\n\n";
 			system("pause");
@@ -154,14 +169,14 @@ int main() {
 		cin >> decision;
 		cout << endl;
 		if (decision == "1") {
-			cout << "Das Molekül ist unpolar, da die Ladungsschwerpunkte zusammenfallen" << endl;
+			cout << "Das Molek\x81 \bl ist unpolar, da die Ladungsschwerpunkte zusammenfallen" << endl;
 			cout << "Deshalb wirken hier van der Waals Wechselwirkungen\n\n";
 			system("pause");
 			return 0;
 		}
 
 
-		cout << "=> Dipolmolek\x81 \bl. Sind N,O oder F enthalten?:" << endl;
+		cout << "=> Dipolmolek\x81 \bl? Sind N, O oder F enthalten?:" << endl;
 		cout << "1. ja" << endl;
 		cout << "2. nein" << endl << "-> ";
 		cin >> decision;
@@ -174,9 +189,10 @@ int main() {
 			cout << "Es handelt sich um Dipol-Dipol-Wechselwirkungen";
 		}
 		else {
-			cout << "Mindestens einer deiner Eingaben war fehlerhaft\n\n";
+			cout << "Mindestens einer deiner Eingaben war fehlerhaft";
 
 		}
+		cout << endl;
 		system("pause");
 	}
 	return 0;
