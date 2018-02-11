@@ -237,22 +237,22 @@ int main() {
 			if (b < 0 || c < 0) {
 				if (b < 0 && c >= 0) {
 					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 - " << (0 - b) << "x + " << c << endl; }
-					else if (a == 0) { cout << "a darf nicht 0 sein"; }
+					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
 					else { cout << "=> allgemeine Form: " << a << "x^2 - " << (0 - b) << "x + " << c << endl; }
 				}
 				else if (c < 0 && b >= 0) {
 					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 + " << b << "x - " << (0 - c) << endl; }
-					else if (a == 0) { cout << "a darf nicht 0 sein"; }
+					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
 					else { cout << "=> allgemeine Form: " << a << "x^2 + " << b << "x - " << (0 - c) << endl; }
 				}
 				else if (b < 0 && c < 0) {
 					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 - " << (0 - b) << "x - " << (0 - c) << endl; }
-					else if (a == 0) { cout << "a darf nicht 0 sein"; }
+					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
 					else { cout << "=> allgemeine Form: " << a << "x^2 - " << (0 - b) << "x - " << (0 - c) << endl; }
 				}
 			}
 			else if (a == 1) { cout << "=> allgemeine Form: " << "x^2 + " << b << "x + " << c << endl; }
-			else if (a == 0) { cout << "a darf nicht 0 sein"; }
+			else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
 			else { cout << "=> allgemeine Form: " << a << "x^2 + " << b << "x + " << c << endl; }
 			cout << endl;
 			system("pause");
@@ -285,22 +285,22 @@ int main() {
 			if (b < 0 || c < 0) {
 				if (b < 0 && c >= 0) {
 					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 - " << (0 - b) << "x + " << c << endl; }
-					else if (a == 0) { cout << "a darf nicht 0 sein"; }
+					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
 					else { cout << "=> allgemeine Form: " << a << "x^2 - " << (0 - b) << "x + " << c << endl; }
 				}
 				else if (c < 0 && b >= 0) {
 					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 + " << b << "x - " << (0 - c) << endl; }
-					else if (a == 0) { cout << "a darf nicht 0 sein"; }
+					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
 					else { cout << "=> allgemeine Form: " << a << "x^2 + " << b << "x - " << (0 - c) << endl; }
 				}
 				else if (b < 0 && c < 0) {
 					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 - " << (0 - b) << "x - " << (0 - c) << endl; }
-					else if (a == 0) { cout << "a darf nicht 0 sein"; }
+					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
 					else { cout << "=> allgemeine Form: " << a << "x^2 - " << (0 - b) << "x - " << (0 - c) << endl; }
 				}
 			}
 			else if (a == 1) { cout << "=> allgemeine Form: " << "x^2 + " << b << "x + " << c << endl; }
-			else if (a == 0) { cout << "a darf nicht 0 sein"; }
+			else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
 			else { cout << "=> allgemeine Form: " << a << "x^2 + " << b << "x + " << c << endl; }
 			cout << endl;
 			system("pause");
@@ -315,12 +315,12 @@ int main() {
 		cin >> decision;
 		cout << endl;
 		if (decision == "2") {
-					cout << "Es handelt sich um eine salzartige Verbindung" << endl;
-					cout << "Aufbau aus Ionen => Ionenbindung\n\n";
-					system("pause");
-					return 0;
-				}
-		
+			cout << "Es handelt sich um eine salzartige Verbindung" << endl;
+			cout << "Aufbau aus Ionen => Ionenbindung\n\n";
+			system("pause");
+			return 0;
+		}
+
 		cout << "EN-Differenz der Bindungspartner?" << endl << "1. Ja" << endl << "2. Nein";
 		cout << endl << "-> ";
 		cin >> decision;
@@ -337,11 +337,11 @@ int main() {
 		cin >> decision;
 		cout << endl;
 		if (decision == "1") {
-					cout << "Das Molek\x81 \bl ist unpolar, da die Ladungsschwerpunkte zusammenfallen" << endl;
-					cout << "Deshalb wirken hier van der Waals Wechselwirkungen\n\n";
-					system("pause");
-					return 0;
-				}
+			cout << "Das Molek\x81 \bl ist unpolar, da die Ladungsschwerpunkte zusammenfallen" << endl;
+			cout << "Deshalb wirken hier van der Waals Wechselwirkungen\n\n";
+			system("pause");
+			return 0;
+		}
 
 		cout << "=> Dipolmolek\x81 \bl? Sind N, O oder F enthalten?:" << endl;
 		cout << "1. ja" << endl;
@@ -349,18 +349,18 @@ int main() {
 		cin >> decision;
 		cout << endl;
 		if (decision == "1")
-				{
-					cout << "Es handelt sich um Wasserstoffbr\x81 \bckenbindungen";
-				}
+		{
+			cout << "Es handelt sich um Wasserstoffbr\x81 \bckenbindungen";
+		}
 		else if (decision == "2") {
-					cout << "Es handelt sich um Dipol-Dipol-Wechselwirkungen";
-				}
+			cout << "Es handelt sich um Dipol-Dipol-Wechselwirkungen";
+		}
 		else {
-					cout << "Mindestens einer deiner Eingaben war fehlerhaft";
+			cout << "Mindestens einer deiner Eingaben war fehlerhaft";
 
-				}
+		}
 		cout << endl;
 		system("pause");
-		}
+	}
 	return 0;
 }
