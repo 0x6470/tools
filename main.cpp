@@ -1,9 +1,6 @@
 /* The original is written in German.
 Feel free to contribute a translation! */
 
-/* The original is written in German.
-Feel free to contribute a translation! */
-
 #include <iostream>
 #include <string>
 #include <cmath>
