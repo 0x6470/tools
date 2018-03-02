@@ -161,7 +161,7 @@ int main() {
 		case 1:
 			cout << "\n \nWelche Form hat Ihre quadratische Gleichung?\n"
 				<< "1: x^2 + px + q\n"
-				<< "2: ax^2 + bx +c\n"
+				<< "2: ax^2 + bx + c\n"
 				<< "-> ";
 			cin >> qua2;
 			switch (qua2)
