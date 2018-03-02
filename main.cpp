@@ -54,7 +54,7 @@ int main() {
 		system("cls");
 		cout << "Welche Form hat Ihre quadratische Gleichung?\n"
 			<< "1: x^2 + px + q\n"
-			<< "2: ax^2 + bx +c\n"
+			<< "2: ax^2 + bx + c\n"
 			<< "-> ";
 		cin >> qua;
 		switch (qua)
