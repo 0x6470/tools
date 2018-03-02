@@ -1,6 +1,9 @@
 /* The original is written in German.
 Feel free to contribute a translation! */
 
+/* The original is written in German.
+Feel free to contribute a translation! */
+
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -208,7 +211,7 @@ int main() {
 					<< "-> ";
 				cin >> c;
 				if (isfail(c)) { return 0; }
-				SPX = -(b / 2 * a);
+				SPX = -((b) / (2 * a));
 				SPY = (4 * a*c - b * b) / (4 * a);
 				cout << "Scheitelpunkt: S(" << SPX << "|" << SPY << ")" << endl;
 				cout << "=> Scheitelpunktform: f(x) = " << a << " * (x - " << SPX << ")^2 + " << SPY << endl << endl;
