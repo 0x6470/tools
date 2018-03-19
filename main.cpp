@@ -5,6 +5,8 @@ Feel free to contribute a translation! */
 #include <string>
 #include <cmath>
 #include <iostream>
+#include <conio.h>
+#include <Windows.h>
 
 using namespace std;
 
@@ -42,8 +44,9 @@ int main() {
 		<< "2 - Scheitelpunktform <-> allgemeine Form <-> Scheitelpunkt\n"
 		<< "3 - Atombindung analysieren\n"
 		<< "-> ";
-	cin >> a1;
-
+	a1 = _getch() - '0';
+	cout << a1;
+	Sleep(100);
 	switch (a1)
 	{
 	default:
@@ -53,10 +56,12 @@ int main() {
 	case 1:
 		system("cls");
 		cout << "Welche Form hat Ihre quadratische Gleichung?\n"
-			<< "1: x^2 + px + q\n"
-			<< "2: ax^2 + bx + c\n"
+			<< "1: x" << (char)253 << " + px + q\n"
+			<< "2: ax" << (char)253 << " + bx + c\n"
 			<< "-> ";
-		cin >> qua;
+		qua = _getch() - '0';
+		cout << qua;
+		Sleep(100);
 		switch (qua)
 		{
 		default:
@@ -66,7 +71,7 @@ int main() {
 		case 1:
 			system("cls");
 			cout << "Bitte eingeben: \n"
-				<< "Form: x^2 + px + q\n"
+				<< "Form: x" << (char)253 << " + px + q\n"
 				<< "p:\n"
 				<< "-> ";
 			cin >> p;
@@ -101,7 +106,7 @@ int main() {
 		case 2:
 			system("cls");
 			cout << "Bitte eingeben: \n"
-				<< "Form: ax^2 + bx + c\n"
+				<< "Form: ax" << (char)253 << " + bx + c\n"
 				<< "a:\n"
 				<< "-> ";
 			cin >> a;
@@ -151,7 +156,9 @@ int main() {
 			<< "2 - Scheitelpunktform -> allgemeine Form\n"
 			<< "3 - Scheitelpunkt -> allgemeine Form\n"
 			<< "-> ";
-		cin >> spf;
+		spf = _getch() - '0';
+		cout << spf;
+		Sleep(100);
 		switch (spf) {
 		default:
 			cout << "Dann eben nicht!\n";
@@ -160,10 +167,12 @@ int main() {
 
 		case 1:
 			cout << "\n \nWelche Form hat Ihre quadratische Gleichung?\n"
-				<< "1: x^2 + px + q\n"
-				<< "2: ax^2 + bx + c\n"
+				<< "1: x" << (char)253 << " + px + q\n"
+				<< "2: ax" << (char)253 << " + bx + c\n"
 				<< "-> ";
-			cin >> qua2;
+			qua2 = _getch() - '0';
+			cout << qua2;
+			Sleep(100);
 			switch (qua2)
 			{
 			default:
@@ -174,7 +183,7 @@ int main() {
 			case 1:
 				system("cls");
 				cout << "Bitte eingeben: \n"
-					<< "Form: x^2 + px + q\n"
+					<< "Form: x" << (char)253 << " + px + q\n"
 					<< "p:\n"
 					<< "-> ";
 				cin >> p;
@@ -188,14 +197,34 @@ int main() {
 				SPX = -(p / 2);
 				SPY = (-(p / 2) * (p / 2)) + q;
 				cout << "Scheitelpunkt: S(" << SPX << "|" << SPY << ")" << endl;
-				cout << "=> Scheitelpunktform: f(x) = (x - " << SPX << ")^2 + " << SPY << endl << endl;
+				//cout << "=> Scheitelpunktform: f(x) = (x - " << SPX << ")" << (char)253 << " + " << SPY << endl << endl;
+				if (SPX < 0 || SPY < 0) {
+					if (SPX < 0 && SPY >= 0) {
+						if (a == 1) { cout << "=> Scheitelpunktform: f(x) = " << "(x + " << (0 - SPX) << ")" << (char)253 << " + " << SPY << endl << endl; }
+						else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
+						else { cout << "=> Scheitelpunktform: f(x) = " << a << " * (x + " << (0 - SPX) << ")" << (char)253 << " + " << SPY << endl << endl; }
+					}
+					else if (SPY < 0 && SPX >= 0) {
+						if (a == 1) { cout << "=> Scheitelpunktform: f(x) = " << "(x - " << SPX << ")" << (char)253 << " - " << (0 - SPY) << endl << endl; }
+						else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
+						else { cout << "=> Scheitelpunktform: f(x) = " << a << " * (x - " << SPX << ")" << (char)253 << " - " << (0 - SPY) << endl << endl; }
+					}
+					else if (SPX < 0 && SPY < 0) {
+						if (a == 1) { cout << "=> Scheitelpunktform: f(x) = " << "(x + " << (0 - SPX) << ")" << (char)253 << " - " << (0 - SPY) << endl << endl; }
+						else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
+						else { cout << "=> Scheitelpunktform: f(x) = " << a << " * (x + " << (0 - SPX) << ")" << (char)253 << " - " << (0 - SPY) << endl << endl; }
+					}
+				}
+				else if (a == 1) { cout << "=> Scheitelpunktform: f(x) = " << "(x - " << SPX << ")" << (char)253 << " + " << SPY << endl << endl; }
+				else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
+				else { cout << "=> Scheitelpunktform: f(x) = " << a << " * (x - " << SPX << ")" << (char)253 << " + " << SPY << endl << endl; }
 				system("pause");
 				return 0;
 
 			case 2:
 				system("cls");
 				cout << "Bitte eingeben: \n"
-					<< "Form: ax^2 + bx + c\n"
+					<< "Form: ax" << (char)253 << " + bx + c\n"
 					<< "a:\n"
 					<< "-> ";
 				cin >> a;
@@ -211,14 +240,34 @@ int main() {
 				SPX = -((b) / (2 * a));
 				SPY = (4 * a*c - b * b) / (4 * a);
 				cout << "Scheitelpunkt: S(" << SPX << "|" << SPY << ")" << endl;
-				cout << "=> Scheitelpunktform: f(x) = " << a << " * (x - " << SPX << ")^2 + " << SPY << endl << endl;
+				//cout << "=> Scheitelpunktform: f(x) = " << a << " * (x - " << SPX << ")" << (char)253 << " + " << SPY << endl << endl;
+				if (SPX < 0 || SPY < 0) {
+					if (SPX < 0 && SPY >= 0) {
+						if (a == 1) { cout << "=> Scheitelpunktform: f(x) = " << "(x + " << (0 - SPX) << ")" << (char)253 << " + " << SPY << endl << endl; }
+						else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
+						else { cout << "=> Scheitelpunktform: f(x) = " << a << " * (x + " << (0 - SPX) << ")" << (char)253 << " + " << SPY << endl << endl; }
+					}
+					else if (SPY < 0 && SPX >= 0) {
+						if (a == 1) { cout << "=> Scheitelpunktform: f(x) = " << "(x - " << SPX << ")" << (char)253 << " - " << (0 - SPY) << endl << endl; }
+						else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
+						else { cout << "=> Scheitelpunktform: f(x) = " << a << " * (x - " << SPX << ")" << (char)253 << " - " << (0 - SPY) << endl << endl; }
+					}
+					else if (SPX < 0 && SPY < 0) {
+						if (a == 1) { cout << "=> Scheitelpunktform: f(x) = " << "(x + " << (0 - SPX) << ")" << (char)253 << " - " << (0 - SPY) << endl << endl; }
+						else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
+						else { cout << "=> Scheitelpunktform: f(x) = " << a << " * (x + " << (0 - SPX) << ")" << (char)253 << " - " << (0 - SPY) << endl << endl; }
+					}
+				}
+				else if (a == 1) { cout << "=> Scheitelpunktform: f(x) = " << "(x - " << SPX << ")" << (char)253 << " + " << SPY << endl << endl; }
+				else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
+				else { cout << "=> Scheitelpunktform: f(x) = " << a << " * (x - " << SPX << ")" << (char)253 << " + " << SPY << endl << endl; }
 				system("pause");
 				return 0;
 			}
 		case 2:
 			system("cls");
 			cout << "Bitte eingeben: \n"
-				<< "Form: a * (x - d) + e"
+				<< "Form: a * (x - d)" << (char)253 << " + e"
 				<< "\na:\n"
 				<< "-> ";
 			cin >> a;
@@ -236,24 +285,24 @@ int main() {
 			c = (a*(d*d)) + e;
 			if (b < 0 || c < 0) {
 				if (b < 0 && c >= 0) {
-					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 - " << (0 - b) << "x + " << c << endl; }
+					if (a == 1) { cout << "=> allgemeine Form: " << "x" << (char)253 << " - " << (0 - b) << "x + " << c << endl; }
 					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
-					else { cout << "=> allgemeine Form: " << a << "x^2 - " << (0 - b) << "x + " << c << endl; }
+					else { cout << "=> allgemeine Form: " << a << "x" << (char)253 << " - " << (0 - b) << "x + " << c << endl; }
 				}
 				else if (c < 0 && b >= 0) {
-					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 + " << b << "x - " << (0 - c) << endl; }
+					if (a == 1) { cout << "=> allgemeine Form: " << "x" << (char)253 << " + " << b << "x - " << (0 - c) << endl; }
 					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
-					else { cout << "=> allgemeine Form: " << a << "x^2 + " << b << "x - " << (0 - c) << endl; }
+					else { cout << "=> allgemeine Form: " << a << "x" << (char)253 << " + " << b << "x - " << (0 - c) << endl; }
 				}
 				else if (b < 0 && c < 0) {
-					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 - " << (0 - b) << "x - " << (0 - c) << endl; }
+					if (a == 1) { cout << "=> allgemeine Form: " << "x" << (char)253 << " - " << (0 - b) << "x - " << (0 - c) << endl; }
 					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
-					else { cout << "=> allgemeine Form: " << a << "x^2 - " << (0 - b) << "x - " << (0 - c) << endl; }
+					else { cout << "=> allgemeine Form: " << a << "x" << (char)253 << " - " << (0 - b) << "x - " << (0 - c) << endl; }
 				}
 			}
-			else if (a == 1) { cout << "=> allgemeine Form: " << "x^2 + " << b << "x + " << c << endl; }
+			else if (a == 1) { cout << "=> allgemeine Form: " << "x" << (char)253 << " + " << b << "x + " << c << endl; }
 			else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
-			else { cout << "=> allgemeine Form: " << a << "x^2 + " << b << "x + " << c << endl; }
+			else { cout << "=> allgemeine Form: " << a << "x" << (char)253 << " + " << b << "x + " << c << endl; }
 			cout << endl;
 			system("pause");
 			return 0;
@@ -284,48 +333,52 @@ int main() {
 			c = (a*(d*d)) + e;
 			if (b < 0 || c < 0) {
 				if (b < 0 && c >= 0) {
-					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 - " << (0 - b) << "x + " << c << endl; }
+					if (a == 1) { cout << "=> allgemeine Form: " << "x" << (char)253 << " - " << (0 - b) << "x + " << c << endl; }
 					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
-					else { cout << "=> allgemeine Form: " << a << "x^2 - " << (0 - b) << "x + " << c << endl; }
+					else { cout << "=> allgemeine Form: " << a << "x" << (char)253 << " - " << (0 - b) << "x + " << c << endl; }
 				}
 				else if (c < 0 && b >= 0) {
-					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 + " << b << "x - " << (0 - c) << endl; }
+					if (a == 1) { cout << "=> allgemeine Form: " << "x" << (char)253 << " + " << b << "x - " << (0 - c) << endl; }
 					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
-					else { cout << "=> allgemeine Form: " << a << "x^2 + " << b << "x - " << (0 - c) << endl; }
+					else { cout << "=> allgemeine Form: " << a << "x" << (char)253 << " + " << b << "x - " << (0 - c) << endl; }
 				}
 				else if (b < 0 && c < 0) {
-					if (a == 1) { cout << "=> allgemeine Form: " << "x^2 - " << (0 - b) << "x - " << (0 - c) << endl; }
+					if (a == 1) { cout << "=> allgemeine Form: " << "x" << (char)253 << " - " << (0 - b) << "x - " << (0 - c) << endl; }
 					else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
-					else { cout << "=> allgemeine Form: " << a << "x^2 - " << (0 - b) << "x - " << (0 - c) << endl; }
+					else { cout << "=> allgemeine Form: " << a << "x" << (char)253 << " - " << (0 - b) << "x - " << (0 - c) << endl; }
 				}
 			}
-			else if (a == 1) { cout << "=> allgemeine Form: " << "x^2 + " << b << "x + " << c << endl; }
+			else if (a == 1) { cout << "=> allgemeine Form: " << "x" << (char)253 << " + " << b << "x + " << c << endl; }
 			else if (a == 0) { cout << "a darf nicht 0 sein => irgendeine Eingabe war falsch"; }
-			else { cout << "=> allgemeine Form: " << a << "x^2 + " << b << "x + " << c << endl; }
+			else { cout << "=> allgemeine Form: " << a << "x" << (char)253 << " + " << b << "x + " << c << endl; }
 			cout << endl;
 			system("pause");
 			return 0;
 		}
 	case 3:
-		cout << "" << endl;
-		string decision;
+		system("cls");
+		int decision;
 		cout << "1. nur Nichtmetallatome" << endl;
 		cout << "2. Metall- + Nichtmetallatome" << endl;
 		cout << "-> ";
-		cin >> decision;
+		decision = _getch() - '0';
+		cout << decision;
+		Sleep(100);
 		cout << endl;
-		if (decision == "2") {
+		if (decision == 2) {
 			cout << "Es handelt sich um eine salzartige Verbindung" << endl;
 			cout << "Aufbau aus Ionen => Ionenbindung\n\n";
 			system("pause");
 			return 0;
-		}
+		} else
 
 		cout << "EN-Differenz der Bindungspartner?" << endl << "1. Ja" << endl << "2. Nein";
 		cout << endl << "-> ";
-		cin >> decision;
+		decision = _getch() - '0';
+		cout << decision;
+		Sleep(100);
 		cout << endl;
-		if (decision == "1") {
+		if (decision == 1) {
 			cout << "Diese Atombindung ist unpolar" << endl;
 			cout << "=> van der Waals Wechselwirkungen\n\n";
 			system("pause");
@@ -334,9 +387,11 @@ int main() {
 		cout << "=> polare Bindung. Molek\x81 \blbau:" << endl;
 		cout << "1. symmetrisch" << endl << "2. asymmetrisch";
 		cout << endl << "-> ";
-		cin >> decision;
+		decision = _getch() - '0';
+		cout << decision;
+		Sleep(100);
 		cout << endl;
-		if (decision == "1") {
+		if (decision == 1) {
 			cout << "Das Molek\x81 \bl ist unpolar, da die Ladungsschwerpunkte zusammenfallen" << endl;
 			cout << "Deshalb wirken hier van der Waals Wechselwirkungen\n\n";
 			system("pause");
@@ -346,13 +401,15 @@ int main() {
 		cout << "=> Dipolmolek\x81 \bl? Sind N, O oder F enthalten?:" << endl;
 		cout << "1. ja" << endl;
 		cout << "2. nein" << endl << "-> ";
-		cin >> decision;
+		decision = _getch() - '0';
+		cout << decision;
+		Sleep(100);
 		cout << endl;
-		if (decision == "1")
+		if (decision == 1)
 		{
 			cout << "Es handelt sich um Wasserstoffbr\x81 \bckenbindungen";
 		}
-		else if (decision == "2") {
+		else if (decision == 2) {
 			cout << "Es handelt sich um Dipol-Dipol-Wechselwirkungen";
 		}
 		else {
