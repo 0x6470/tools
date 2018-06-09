@@ -378,7 +378,7 @@ int main() {
 		cout << decision;
 		Sleep(100);
 		cout << endl;
-		if (decision == 1) {
+		if (decision == 2) {
 			cout << "Diese Atombindung ist unpolar" << endl;
 			cout << "=> van der Waals Wechselwirkungen\n\n";
 			system("pause");
@@ -399,7 +399,7 @@ int main() {
 		}
 
 		cout << "=> Dipolmolek\x81 \bl? Sind N, O oder F enthalten?:" << endl;
-		cout << "1. ja" << endl;
+		cout << "1. Ja" << endl;
 		cout << "2. nein" << endl << "-> ";
 		decision = _getch() - '0';
 		cout << decision;
